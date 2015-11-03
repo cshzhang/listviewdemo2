@@ -7,6 +7,7 @@
 # 使用方法
 
 * 布局文件
+
 主布局文件
 ```xml
 <RelativeLayout
@@ -26,7 +27,7 @@
 </RelativeLayout>
 ```
 
-item的布局文件，这个是自定义LinearLayout。
+每个item的布局文件，这个是自定义LinearLayout。
 有两个子view，第一个显示内容的view，第二个显示右侧的view。
 ```xml
 <cn.hzh.listviewdemo2.view.ItemView
@@ -130,7 +131,7 @@ private void initDatas()
 ```
 
 # 原理简要分析
-* 继承ListView，复写dispatchTouchEvent()方法和onTouchEvent()方法，处理用户左滑操作
+* 继承ListView，复写dispatchTouchEvent()方法和onTouchEvent()方法，监听用户左滑操作
 * 对于item的view，也使用了自定义view(LinearLayout)。主要在屏幕右边放置一个RightView响应用户左滑操作，代码如下：
 ```java
 public class ItemView extends LinearLayout
@@ -175,6 +176,6 @@ public class ItemView extends LinearLayout
     }
 }
 ```
-主要就设置了ContentView和RightView的宽度
+上面代码主要就设置了ContentView和RightView的宽度
 
 * 对外提供回调接口，用来响应用户对RightView的点击操作(比如从ListView中删除点击的Item)
